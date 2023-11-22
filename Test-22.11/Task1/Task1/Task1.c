@@ -4,7 +4,7 @@
 
 #include "../LinkedList/LinkedList.h"
 
-void deleteEvenIndexes(const List* const list)
+void deleteOddIndexes(const List* const list)
 {
     for (Index index = getFrontIndex(list); index != NULL;
         index = getNextIndex(index))
@@ -27,7 +27,7 @@ bool test(const int testCase[], const size_t testCaseSize,
     const int correctAnswer[], const size_t correctAnswerSize)
 {
     List* tempTestCase = getArrayCopy(testCase, testCaseSize);
-    deleteEvenIndexes(tempTestCase);
+    deleteOddIndexes(tempTestCase);
     size_t i = 0;
     for (Index index = getFrontIndex(tempTestCase); index != NULL;
         index = getNextIndex(index), ++i)
