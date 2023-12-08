@@ -7,24 +7,24 @@ struct Graph
     int** matrix;
 };
 
-static Graph* createGraph(size_t n, size_t m)
+static Graph* createGraph(size_t nodesCount, size_t edgesCount)
 {
     Graph* newGraph = (Graph*)malloc(sizeof(Graph));
     if (newGraph == NULL)
     {
         return NULL;
     }
-    newGraph->nodesCount = n;
-    newGraph->edgesCount = m;
-    newGraph->matrix = (int**)calloc(n, sizeof(int*));
+    newGraph->nodesCount = nodesCount;
+    newGraph->edgesCount = edgesCount;
+    newGraph->matrix = (int**)calloc(nodesCount, sizeof(int*));
     if (newGraph->matrix == NULL)
     {
         free(newGraph);
         return NULL;
     }
-    for (size_t node = 0; node < n; ++node)
+    for (size_t node = 0; node < nodesCount; ++node)
     {
-        newGraph->matrix[node] = (int*)calloc(m, sizeof(int));
+        newGraph->matrix[node] = (int*)calloc(edgesCount, sizeof(int));
         if (newGraph->matrix[node] == NULL)
         {
             deleteGraph(&newGraph);
